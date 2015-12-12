@@ -12,7 +12,7 @@ local run_count = 0
 local yz_delay_time=0
 --执行
 function 尝试一次远征()
-if  os.time()<=yz_last_time+yz_delay_time then return end
+if  os.time()<=yz_last_time+yz_delay_time*60 then return end
 run_count = run_count + 1
 Win.Print("远征尝试第"..run_count.."次")
 --start
