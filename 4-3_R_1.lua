@@ -16,7 +16,7 @@ men = 0 ------开启调度
 number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID
 local rfe=false
-local cj_last_time = os.time()
+local cj_last_time = os.time()-1
 --=====================
 local ssta=1
 local n=1
@@ -102,7 +102,7 @@ end
 
 
 function 肝船4_3T()
-if n > 运行次数 or os.time()<cj_last_time+休眠时间 then return end
+if n > 运行次数 or (n~=1 and os.time()<cj_last_time+休眠时间*60) then return end
 	Win.Print(( "开始第:%d次"):format(n))
 	ret = 补给.执行(true) --只补给舰队1
 
@@ -140,7 +140,7 @@ if n > 运行次数 or os.time()<cj_last_time+休眠时间 then return end
 	Base.Sleep(2000)
 	if n>运行次数 then
 		补给.执行(true)
-		Win.Pop('脚本执行完毕！')
+		Win.Pop('出击执行完毕！')
 	end
 end
 while true do 
