@@ -227,3 +227,11 @@ while 启动画面()==false do Base.Sleep(500) end  --等待加载结束
 tc(655,400)
 通用.等待母港(1500)
 end
+
+function iterator(t) --返回 key,value
+    local k = 0;
+    return function()
+        k = k + 1;            
+        return k,t[k];
+    end
+end

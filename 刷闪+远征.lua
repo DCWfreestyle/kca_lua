@@ -1,19 +1,23 @@
-require("\\Lua\\changebynew")
 require("\\Lua\\Battle")
 include_解体 = true
 require("\\Lua\\解体")
 require("\\Lua\\ztaskVer2")
 require("\\Lua\\换装备")
 include_修船=true
-require("\\Lua\\明石修船")
+require("\\Lua\\明石修船") --require("\\Lua\\changebynew")
+require("\\Lua\\尝试远征")
 
 
-mg=            -- 每把执行次数
-3              --你的剩余船位必须大于droplimit
-
+				--你的剩余船位必须大于droplimit
+--远征
+k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
+k3_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
+k4_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
+--刷闪设置
 kanlist = {
 	59,64,88}
 tlist =   {}
+mg=3           	-- 每把执行次数
 刷闪修理=true
 rl =1
 完成之后解体 = true
@@ -25,6 +29,9 @@ task_id = 1		------任务ID 0 , ... , number_of_tasks-1
 -----------
 dropkan = 1 --现有掉落数量
 droplimit = 6 --掉落上限
+local n=1
+local kanlist_iter=iterator(kanlist)
+local ended=false --结束信号
 
 function 战斗1_1()
 tc(645,223)
@@ -87,46 +94,33 @@ end
 
 
 function 刷闪()
-GoOrganize()
-if 只有单舰() then 换上僚舰() end
-backhome()
-刷闪一只船(mg)
-if rl==1 then
-通用.等待母港(2000)
-Base.ClickRectEx(399,460,10,5) --释放
+if ended then return end --结束后不再运行
+local k,v = kanlist_iter()
+if v == nil then   --结束后的处理
+	ended == true  --结束信号
+	if 完成之后解体 then 破损解体(dropkan) end
+	backhome()
+	if 刷闪修理==true then
+	Kan.Repair(4)
+	akashirep()
+	end
+	return --退出
 end
-else    
-for k,v in pairs(kanlist) do
-开始占用()--########################################
+--进行刷闪
 	进入编成()
 	Dcg(1,v) 
 	换下僚舰()
 	换上僚舰()
 	僚舰大破处理()
 	backhome()
-	mg=tlist[k] or 3 --如果有设置的次数就用设置的
+	mg=tlist[k] or 3 --设置出击次数，默认为3，可在tlist设置
 	刷闪一只船(mg)
-结束占用()--########################################
-end
-
-开始占用()--########################################
-if 完成之后解体 then 破损解体(dropkan) end
-backhome()
-
-if 刷闪修理==true then
-Kan.Repair(4)
-akashirep()
-end
-
-结束占用()--########################################
 end
 
 
 
-刷闪()
-
-if rl==1 then
-backhome()
-Base.ClickRectEx(399,460,10,5) --释放
+while true do 
+	刷闪()
+	尝试一次远征()
+	Base.Sleep(1000*2)
 end
-
