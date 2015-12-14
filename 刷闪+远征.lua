@@ -11,12 +11,12 @@ require("\\Lua\\尝试远征")
 				--你的剩余船位必须大于droplimit
 --远征
 k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
-k3_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
-k4_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
+k3_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
+k4_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
 --刷闪设置
 kanlist = {
-	59,64,88}
-tlist =   {}
+	12,1,66,78,94,2,4,32}
+tlist =   {2,1,2}
 mg=3           	-- 每把执行次数
 刷闪修理=true
 rl =1
@@ -97,7 +97,7 @@ function 刷闪()
 if ended then return end --结束后不再运行
 local k,v = kanlist_iter()
 if v == nil then   --结束后的处理
-	ended == true  --结束信号
+	ended = true  --结束信号
 	if 完成之后解体 then 破损解体(dropkan) end
 	backhome()
 	if 刷闪修理==true then

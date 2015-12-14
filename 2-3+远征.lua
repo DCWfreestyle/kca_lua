@@ -5,17 +5,20 @@ nanxiexecute=1
 require("\\Lua\\南西日常")
 include_修船=true
 require("\\Lua\\明石修船")
---Base.Sleep(1000*60*12.5)
-ssta=0
+require("\\Lua\\尝试远征")
+local ssta=0
 出击次数=10
 出击模式= 1        --1偷油 2任务   3南西
-rep=1              --修船
-   ------
+local rep=1              --修船
+   --远征
+k2_conquest = C.長距離練習航海_ID2
+k3_conquest = C.防空射撃演習_ID6
+k4_conquest = C.海上護衛任務_ID5
 men = 0 ------开启调度
 number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID
 
-nnn=1 ret=0 nss=#ss2+1
+local n=1; local ret=0; local nss=#ss2+1; local ended = false;
 function 偷油()
 Kan.DelBattleInfo()
 Kan.AddBattleInfo(1,1,false,false)
@@ -37,38 +40,41 @@ function() return 任务() end,
 function() return 南西() end
 }
 p=0
-while nnn<=出击次数 and p<80 do --循环10000次
-Win.Print(("开始第:%d次"):format(nnn))
-开始占用() --########################################
+function 疯狂2_3()
+if ended then return end
+if n>出击次数 then 
+	ended=true
+	if rep==1 then
+	全部修理()
+	end
+	补给.执行(true)
+	return
+end
+Win.Print(("开始第:%d次"):format(n))
 ret = 补给.执行(true)
 while ret~=0 do
 	Win.Pop('潜艇大破或中破！',true)
-	b=true
 	Kan.RepairEx(1,12,12)
 	ret = 补给.执行(true)
 end
+
 通用.等待母港(1000)
 ss2[ssta]()--换船
 ssta=(ssta+1)%nss
-
 ret = 补给.执行(true)
-
 if ret==0 then
 	Win.Print(("现在的ssta:%d"):format((ssta-1)%nss))
 	通用.等待母港(2000)
 	Kan.Sally(2,3)
 	crazy23[出击模式]()
-	b=false
-	nnn=nnn+1
+	n=n+1
 end
 通用.等待母港(2000)
-p=p+1
+end
+while true do 
+	疯狂2_3()
+	尝试一次远征()
+	Base.Sleep(1000*2)
+end
 
-结束占用()--###########################
-end
-if not b then 开始占用() end
-补给.执行(true)
-if rep==1 then
-全部修理()
-end
-结束占用()--########################### 用于Break跳出处理
+

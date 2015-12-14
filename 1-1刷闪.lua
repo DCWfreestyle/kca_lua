@@ -12,7 +12,7 @@ mg=            -- 每把执行次数
 3              --你的剩余船位必须大于droplimit
 
 kanlist = {
-	59,64,88}
+	48}--48,54,59,64,79
 tlist =   {}
 刷闪修理=true
 rl =1
@@ -87,15 +87,7 @@ end
 
 
 function 刷闪()
-GoOrganize()
-if 只有单舰() then 换上僚舰() end
-backhome()
-刷闪一只船(mg)
-if rl==1 then
-通用.等待母港(2000)
-Base.ClickRectEx(399,460,10,5) --释放
-end
-else    
+
 for k,v in pairs(kanlist) do
 开始占用()--########################################
 	进入编成()
