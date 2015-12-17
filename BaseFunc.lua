@@ -45,7 +45,7 @@ function p(...) --·½±ãÊä³ö p("a=",a)
 local ostr=""
 for k,v in ipairs({...}) do
 	if v==true then v="true"
-	elseif v==false then v="false" end
+	elseif v==false then v="false"
 	elseif v==nil then v="nil" end
 	ostr=ostr..v
 end
