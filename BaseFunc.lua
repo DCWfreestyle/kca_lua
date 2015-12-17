@@ -44,8 +44,9 @@ end
 function p(...) --方便输出 p("a=",a)
 local ostr=""
 for k,v in ipairs({...}) do
-	if v==true then v="true" end
-	if v==false then v="false" end
+	if v==true then v="true"
+	elseif v==false then v="false" end
+	elseif v==nil then v="nil" end
 	ostr=ostr..v
 end
 Win.Print(ostr)
@@ -229,7 +230,7 @@ tc(655,400)
 end
 
 function iterator(t) --返回 key,value
-    local k = 0;
+    local k = 0;		--或使用pairs f, s, var = pairs(tt) k,v= f(s,var) k,v= f(s,k)
     return function()
         k = k + 1;            
         return k,t[k];
