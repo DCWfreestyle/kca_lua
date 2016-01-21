@@ -6,7 +6,7 @@ k3_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
 k4_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
 ]]
 --
-local check_time = {3,5}
+      check_time = {3,5}
 local yz_last_time = os.time()
 local run_count = 0
 local yz_delay_time=0

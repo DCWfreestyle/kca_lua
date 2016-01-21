@@ -1,6 +1,6 @@
 include_formedcag=true
 require("\\Lua\\formedcga")
-hc=1
+hc=0
 if hc==1 then hcg[3]() end
 rl=1
 ³ö»÷.Ö´ÐÐ(1, 5)

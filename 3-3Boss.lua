@@ -3,7 +3,7 @@ require("\\Lua\\Battle")
 include_formedcag=true
 require("\\Lua\\formedcga")
 rl=1
-hc=1
+hc=0
 
 function ÏßÂ·ÅÐ¶Ï(lastp)
 	while true do
