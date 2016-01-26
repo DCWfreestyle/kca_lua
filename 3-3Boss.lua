@@ -1,5 +1,5 @@
 require("\\Lua\\Battle")
-
+--i added this 
 include_formedcag=true
 require("\\Lua\\formedcga")
 rl=0
