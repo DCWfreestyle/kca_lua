@@ -7,8 +7,8 @@ local 休眠时间=0
 local 运行次数=10
 --远征
 k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
-k3_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
-k4_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
+k3_conquest = C.海上護衛任務_ID6 --指向远征名可查看远征要求
+k4_conquest = C.防空射撃演習_ID5 --指向远征名可查看远征要求
 --------下面的设置不用管
 changekan4_3=true
 men = 0 ------开启调度
