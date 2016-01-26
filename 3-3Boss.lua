@@ -59,7 +59,6 @@ if hc==1 then hcg[2]() end
 通用.等待母港(500)
 补给.执行() 
 
-
 if rl==1 then
 通用.等待母港(500)
 Base.ClickRectEx(399,460,10,5) --释放

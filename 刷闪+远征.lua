@@ -108,6 +108,7 @@ if v == nil then   --结束后的处理
 	return --退出
 end
 --进行刷闪
+    p("刷闪：KanNum:",v)
 	进入编成()
 	Dcg(1,v) 
 	换下僚舰()
