@@ -1,10 +1,10 @@
 
-
---[[设置
-k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
-k3_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
-k4_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
-]]
+--Default
+if k2_conquest==nil and k3_conquest==nil and k4_conquest==nil then
+k2_conquest = C.長距離練習航海_ID2
+k3_conquest = C.防空射撃演習_ID6
+k4_conquest = C.海上護衛任務_ID5
+end
 --
 local check_time = {3,5}
 local yz_last_time = os.time()
