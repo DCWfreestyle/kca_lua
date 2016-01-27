@@ -4,11 +4,11 @@ require("\\Lua\\changebynew")
 require("\\Lua\\尝试远征")       --尝试一次远征()
 local 捞铝=1             --选择是否捞铝，1是，0否
 local 休眠时间=0
-local 运行次数=10
+local 运行次数=20
 --远征
-k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
-k3_conquest = C.海上護衛任務_ID6 --指向远征名可查看远征要求
-k4_conquest = C.防空射撃演習_ID5 --指向远征名可查看远征要求
+k2_conquest = C.長距離練習航海_ID2
+k3_conquest = C.防空射撃演習_ID6
+k4_conquest = C.海上護衛任務_ID5
 --------下面的设置不用管
 changekan4_3=true
 men = 0 ------开启调度
@@ -30,14 +30,15 @@ function 线路判断(lastp)
 	local xcrecorder=0
 		Win.Print("线路判断开始")
 	while xcrecorder<=1000 do
-		if Base.IsColor(661,293,6416032) and lastp~=1 then return 1 end
+		--if (Base.IsColor(661,293,6416032) or  Base.IsColor(656,297,6218393)) and lastp~=1 then return 1 end
+		if Base.IsColor(700,213,6776064)and lastp==0 then return 1 end
 		if Base.IsColor(547,279,6086807) and lastp~=2 then return 2 end
 		if Base.IsColor(566,366,6218393) and lastp~=3 then return 3 end
 		if Base.IsColor(477,238,16775936)and lastp==2 then return 4 end
 		if Base.IsColor(400,182,16775936)and lastp~=5 then return 5 end --路径
 		if Base.IsColor(353,120,16775936)and lastp~=6 then return 6 end --路径
 		if 罗盘() then 罗盘处理() Win.Print("罗盘处理完毕") end
-		Base.Sleep(100)
+		Base.Sleep(50)
 		xcrecorder=xcrecorder+1
 	end
 end
