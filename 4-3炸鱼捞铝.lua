@@ -6,9 +6,11 @@ local 捞铝=1             --选择是否捞铝，1是，0否
 local 休眠时间=0
 local 运行次数=20
 --远征
+--[[
 k2_conquest = C.長距離練習航海_ID2
 k3_conquest = C.防空射撃演習_ID6
 k4_conquest = C.海上護衛任務_ID5
+]]
 --------下面的设置不用管
 changekan4_3=true
 men = 0 ------开启调度
@@ -17,7 +19,7 @@ task_id = 1		------任务ID
 local rfe=false
 local cj_last_time = os.time()
 --=====================
-local ssta=0
+local ssta=1
 local n=1
 cg43={
 [0]=function() return cgallbutflag({92,118,36,62,76}) end,  	--大井

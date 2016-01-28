@@ -11,9 +11,11 @@ local ssta=1
 出击模式= 2        --1偷油 2任务   3南西
 local rep=1              --修船
    --远征
+   --[[
 k2_conquest = C.長距離練習航海_ID2
 k3_conquest = C.防空射撃演習_ID6
 k4_conquest = C.海上護衛任務_ID5
+]]
 men = 0 ------开启调度
 number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID

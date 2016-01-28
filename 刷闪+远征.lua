@@ -10,18 +10,20 @@ require("\\Lua\\尝试远征")
 
 				--你的剩余船位必须大于droplimit
 --远征
+--[[
 k2_conquest = C.長距離練習航海_ID2 --指向远征名可查看远征要求
 k3_conquest = C.防空射撃演習_ID6 --指向远征名可查看远征要求
 k4_conquest = C.海上護衛任務_ID5 --指向远征名可查看远征要求
+]]--
 --刷闪设置
 kanlist = {
-	74,77,88,100,109,112,95,111,86,94
+	54,61,100,107
 	}
 tlist =   {}
 mg=3           	-- 每把执行次数
 刷闪修理=true
 rl =1
-完成之后解体 = true
+完成之后解体 = false
 -------------------------------------------
 
 men = 1 ------ 1开启调度，0不使用
@@ -29,7 +31,7 @@ number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID 0 , ... , number_of_tasks-1
 -----------
 dropkan = 1 --现有掉落数量
-droplimit = 6 --掉落上限
+droplimit = 9 --掉落上限
 local n=1
 local kanlist_iter=iterator(kanlist)
 local ended=false --结束信号
