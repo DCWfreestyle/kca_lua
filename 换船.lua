@@ -1,7 +1,7 @@
 
 include_formedcag=true
 require("\\Lua\\formedcga")
-sw=2
+sw=7
 --[[				hcg[]()
 1：3潜艇 2：3-3北方任务 3：1-5BOSS
 4:5潜艇 5：3CL3DD(水雷南西) 6：水打南方へ
