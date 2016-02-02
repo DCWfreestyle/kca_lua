@@ -5,7 +5,7 @@ k2_conquest = C.長距離練習航海_ID2
 k3_conquest = C.北方鼠輸送作戦_ID21
 k4_conquest = C.海上護衛任務_ID5
 
-check_time = {5,7}
+check_time = {5,10}
 --设置3-5分钟收回并放出一次远征
 
 ------------------------------

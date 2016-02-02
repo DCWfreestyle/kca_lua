@@ -52,8 +52,7 @@ DD:
 	107清霜 108山云  111初春 112初雪 126秋云 115江风 109z1
 其它：
 	99明石 90秋津州
-]] --
-
+]] -- 
 hcg={
 [0]=function() return Win.Print("notdefined") end,
 function() return cgall({67,46,58}) end, -- 3潜艇
