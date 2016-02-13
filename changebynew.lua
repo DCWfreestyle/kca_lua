@@ -248,6 +248,7 @@ end
 tc(491,169)
 Base.Sleep(700)
 tc(689,441) -------有几率会失败，因为一个舰队内不能有两只船相同,错误会被忽略
+if Base.IsColor(668,435,11776691) then tc(109,189) tc(109,189) return false end
 --backhome()
 return true
 end
