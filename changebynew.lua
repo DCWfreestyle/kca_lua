@@ -263,7 +263,7 @@ end
 --backhome()   --不回母港
 end
 function 僚舰大破处理() 
-waitsta(790,202,11643488)
+waitsta(792,460,13752544)
 if ( not(Base.IsColor(748,161,1586304) or Base.IsColor(747,162,2435430) or Base.IsColor(750,168,3355778)) )   --白黄
 then return true end           --非大破就不处理
 p("僚舰大破处理：僚舰大破")
