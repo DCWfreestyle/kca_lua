@@ -279,18 +279,6 @@ local ln1=n1
 local ln2=n2
 
 -- pagedelaylv
-function 僚舰大破处理() 
-waitsta(790,202,11643488)
-if ( not(Base.IsColor(748,161,1586304) or Base.IsColor(747,162,2435430) or Base.IsColor(750,168,3355778)) )   --白黄
-then return true end           --非大破就不处理
-p("僚舰大破处理：僚舰大破")
-if dropkan <= 1 then --那就单舰吧
-	换下僚舰()
-else
-	dropkan=dropkan-破损解体(1)
-	进入编成() 换下僚舰() 换上僚舰() 僚舰大破处理()
-end
-end
 
 if not 点击变更(ln1) then Win.Print("换船：换船失败") return false end
 
