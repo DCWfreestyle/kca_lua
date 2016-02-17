@@ -179,11 +179,11 @@ end
 
 
 
-local function 调整为new排序()
+function 调整为new排序()
 while 检查是否是new排序() == false do tc(773,110) Base.Sleep(100) end
 end
 
-local function 调整为破损排序()
+function 调整为破损排序()
 while 检查是否是破损排序() == false do tc(773,110) Base.Sleep(100) end
 end
 
@@ -196,7 +196,7 @@ end
 return 0
 end
 
-local function 点击变更(cp)
+function 点击变更(cp)
 --408/750 212/325/438
 local dx=(cp+1)%2
 local dy,_=math.modf((cp-1)/2)
@@ -227,12 +227,12 @@ if m==(-1) then m=9 end
 tc(575,418-m*28)
 end
 
-local function 倒序选择船(shipnum) --从最后一页开始翻
+function 倒序选择船(shipnum) --从最后一页开始翻
 选择页(shipnum) 
 页内选择(shipnum)
 end
 
-local function 顺序选择船(shipnum)
+function 顺序选择船(shipnum)
 --tc(FExs[1],pagey)   --翻到首页
 local pagenum=math.modf((shipnum-1)/10)
 next(pagenum)

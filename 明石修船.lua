@@ -5,8 +5,8 @@ require("\\Lua\\changebynew")
 rl=1
 --调用之前加入 include_修船=true
 
-checked = 0
-reppos = 2
+local checked = 0
+local reppos = 2
 function 有修复图标_闪()
 local count = {}
 table.insert(count,0,{[0]=747,180,12434732}) 
