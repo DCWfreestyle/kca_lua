@@ -1,7 +1,7 @@
 rlenanxi = 0
 require("\\Lua\\ztaskVer2")
 require("\\Lua\\Battle")
-function 线路判断(lastp)
+local function 线路判断(lastp)
 -- B=1  C=2  H=3  F=4  G=5  K=6  J=7 E=8(中央)
 	while true do
 		if Base.IsColor(287,89,6349980) and lastp~=1 then return 1 end
@@ -78,11 +78,9 @@ return Go_On
 
 end
 
-function mmm()
+if nanxiexecute==nil then
 出击.执行(2, 3)
 战斗南西()
 补给.执行()
 if rlenanxi==1 then Release() end
 end
-
-if nanxiexecute==nil then mmm() end

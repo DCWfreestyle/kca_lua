@@ -1,13 +1,13 @@
 require("\\Lua\\BaseFunc")
-pagenp={[0]=497,527,559,589,621,651}  --当前页（位置）检查
-pagey=446                     --点击Y
-pagexs={516,548,578,608,640}  --点击X
-FExs={432,466,676,714}  --四个箭头
-chbut={{408,212}}
+local pagenp={[0]=497,527,559,589,621,651}  --当前页（位置）检查
+local pagey=446                     --点击Y
+local pagexs={516,548,578,608,640}  --点击X
+local FExs={432,466,676,714}  --四个箭头
+local chbut={{408,212}}
 inied=false
-dcgloop=false
+local dcgloop=false
 cgen =1              --等于0就关闭changekan函数,没卵用
-pagedelaylv=2
+local pagedelaylv=2
 --[[
 
 cg(被换舰娘的位置,换上舰娘的序号) 序号按获得顺序排列，初始舰为1，拆掉的
@@ -18,6 +18,8 @@ cgall()
 cgb()
 cgInGroups()
 cgallbutflag()
+
+换上僚舰() 换下僚舰() 僚舰大破处理() 
 ]]
 
 --[[
@@ -32,7 +34,7 @@ cgstas={					--[位置]={组,组内序号}
 		[4]={2,1}
 		}
 ]]
-function CurrentSelected()
+local function CurrentSelected()
 local s="-1,-1"
 while s=="-1,-1" do
 	s=Base.CallFunc("Base.FindColor","[12697118]")
@@ -43,7 +45,8 @@ for n=1,5 do
 	if x>pagenp[n-1] and x<pagenp[n] then return n end
 end
 end
-function frontpage()
+
+local function frontpage()
 local cs= CurrentSelected()
 if cs~=1 then 
 	tc(pagexs[cs-1],pagey)
@@ -53,7 +56,8 @@ else
 end
 return true
 end
-function nextpage()
+
+local function nextpage()
 local cs= CurrentSelected()
 if cs~=5 then
 	tc(pagexs[cs+1],pagey)
@@ -64,7 +68,7 @@ end
 return true
 end
 
-function pre(pnum)
+local function pre(pnum)
 if pnum>4 then       --5页5页地点
 	while pnum>4 do
 		local cs= CurrentSelected()
@@ -104,14 +108,15 @@ end
 return true
 end
 
-function next(pnum)
+local function next(pnum)
 while pnum>0 do
 if nextpage() ==false then return false end
 pnum=pnum-1
 end
 return true
 end
-function 检查是否是new排序()
+
+local function 检查是否是new排序()
 local s=Base.CallFunc("Base.FindColor","[8224573,9474092,9474092,13488566,9474092,9474092,10066495,15922943,15922943,9474092,9474092,9474092,15922943,13488566,9474092,11382379,9474092,11382379,9474092,9474092]")
 local _,_,x,y=string.find(s, "^(-?%d+),(-?%d+)$")
 x=tonumber(x)
@@ -119,7 +124,7 @@ y=tonumber(y)
 if x~=765 or y~=113 then return false end
     return true
 end
-function 检查是否是破损排序()
+local function 检查是否是破损排序()
 local s=Base.CallFunc("Base.FindColor","[9868580,16777215,9868580,11645024,16579833,16777215,16316658,11710816,10329141,12829315,15395540,15987686,13421462,10855492,9868580,8816172,7303479,7764030,7764030,7764030]")
 local _,_,x,y=string.find(s, "^(-?%d+),(-?%d+)$")
 x=tonumber(x)
@@ -127,7 +132,7 @@ y=tonumber(y)
 if x~=772 or y~=109 then return false end
     return true
 end
-function 检查是否在编成()
+local function 检查是否在编成()
 local s=Base.CallFunc("Base.FindColor","[2180435,871766,19028,1135461,4420492]")
 local _,_,x,y=string.find(s, "^(-?%d+),(-?%d+)$")
 x=tonumber(x)
@@ -136,14 +141,14 @@ if x~=16 or y~=158 then return false end
     return true
 end
 
-function 只有单舰()
+local function 只有单舰()
 local count = {}
 table.insert(count,0,{[0]=633,206,4605510}) 
 return IsColorAll(count)
 end
 
 
-function 检查是否在变更()
+local function 检查是否在变更()
 local s=Base.CallFunc("Base.FindColor","[4145729,4079936,3816764,15462125,13619921,15527918,16250623,13421526,15790074,13816284,15132144,14211042,11645115,9473946,12368838,16053246,15790074,14079456,10526634,11710908]")
 local _,_,x,y=string.find(s, "^(-?%d+),(-?%d+)$")
 x=tonumber(x)
@@ -153,7 +158,7 @@ if x~=429 or y~=109 then return false end
 end
 
 
-function selectKantai(kantai)
+local function selectKantai(kantai)
 if kantai==nil then kantai = 1 end
 local selected={
 {142,117,10263330}, --第一舰队
@@ -174,14 +179,15 @@ end
 
 
 
-function 调整为new排序()
+local function 调整为new排序()
 while 检查是否是new排序() == false do tc(773,110) Base.Sleep(100) end
 end
 
-function 调整为破损排序()
+local function 调整为破损排序()
 while 检查是否是破损排序() == false do tc(773,110) Base.Sleep(100) end
 end
-function emptyn()
+
+local function emptyn()
 for n=1,10 do
 	if not Base.IsColor(758,136+n*28,11580143) then
 		return 10-n+1
@@ -190,7 +196,7 @@ end
 return 0
 end
 
-function 点击变更(cp)
+local function 点击变更(cp)
 --408/750 212/325/438
 local dx=(cp+1)%2
 local dy,_=math.modf((cp-1)/2)
@@ -204,27 +210,29 @@ waitsta(418,447,10592291)
 return true
 end
 
-function 进入编成()
+local function 进入编成()
 GoOrganize()
 return true
 end
 
-function 选择页(shipnum) 
+local function 选择页(shipnum) 
 local pagenum=math.modf((shipnum-1)/10)
 pre(pagenum)
 
 end
 
-function 页内选择(shipnum)
+local function 页内选择(shipnum)
 local m = shipnum%10-1
 if m==(-1) then m=9 end
 tc(575,418-m*28)
 end
-function 倒序选择船(shipnum) --从最后一页开始翻
+
+local function 倒序选择船(shipnum) --从最后一页开始翻
 选择页(shipnum) 
 页内选择(shipnum)
 end
-function 顺序选择船(shipnum)
+
+local function 顺序选择船(shipnum)
 --tc(FExs[1],pagey)   --翻到首页
 local pagenum=math.modf((shipnum-1)/10)
 next(pagenum)
@@ -232,6 +240,7 @@ local m = shipnum%10-1
 if m==(-1) then m=9 end
 tc(575,166+m*28)
 end
+
 function 换上僚舰() --刷闪用
 --进入编成()
 if not 点击变更(2) then

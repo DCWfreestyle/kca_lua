@@ -7,8 +7,11 @@ require("\\Lua\\BaseFunc")
 --================
 powertaken=false     --记录是否被占用
 --
+--[[ Export:
+结束占用() 开始占用() Release() 休眠ex(sleeptime) /秒
 
-function 空闲状态()
+]]
+local function 空闲状态()
     array = {};count = {};
     array = {[0]=380,314,16777215}; count[0] = array;
     array = {[0]=380,308,13486666}; count[1] = array;

@@ -1,6 +1,6 @@
 start =1 --开始位置
 fq =30  --废弃数量                  --任务24个
-function IsColorAll(array)
+local function IsColorAll(array)
 
 	n=0
 	ok=0
@@ -19,7 +19,7 @@ function IsColorAll(array)
 	end
 end
 
-function 检查是否废弃完成()
+local function 检查是否废弃完成()
 
 	array = {}
 	count = {}
@@ -28,7 +28,7 @@ function 检查是否废弃完成()
 
 end
 
-function 等待废弃完成()
+local function 等待废弃完成()
 while 检查是否废弃完成() == false do
 	Base.Sleep(200)
 end

@@ -73,7 +73,7 @@ function td(n) --n-delaytime-akm
 	Base.Sleep(1000*delaytime) 
 end
 
-function 启动画面()
+local function 启动画面()
 	array = {}
 	count = {}
 	
@@ -93,7 +93,7 @@ count[5] = array
 	return IsColorAll(count)
 
 end
-function 母港2()
+local function 母港2()
     array = {}
 	local count = {}
     array = {[0]=207,254,1870818}; count[0] = array;
@@ -101,7 +101,7 @@ function 母港2()
 	
 end
 
-function 检查是否在母港()
+local function 检查是否在母港()
 
 	array = {}
 	counts = {}

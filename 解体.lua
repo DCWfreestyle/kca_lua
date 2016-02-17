@@ -7,14 +7,14 @@ dl=31
 
 
 --------------------
-function 工厂完成()
+local function 工厂完成()
 count = {}
 table.insert(count,0,{[0]=204,456,1872047}) 
 table.insert(count,0,{[0]=24,360,4216780}) 
 return IsColorAll(count)
 end
 --------------------
-function 前往工厂解体()
+local function 前往工厂解体()
 if 工厂完成() == false then
 	GoFactory()
 	Base.Click(201,252)
@@ -22,7 +22,7 @@ if 工厂完成() == false then
 end
 end
 ----------------------
-function 检查解体是否按new排序()
+local function 检查解体是否按new排序()
 	array = {}
 	count = {}
 	
@@ -44,7 +44,7 @@ count[6] = array
 	return IsColorAll(count)
 
 end
-function 检查解体是否按破损排序()
+local function 检查解体是否按破损排序()
 local s=Base.CallFunc("Base.FindColor","[9868580,8684586,11973994,16645628,16777215,16645627,12631933,9145135,9539626,11118669]")
 local _,_,x,y=string.find(s, "^(-?%d+),(-?%d+)$")
 x=tonumber(x)
@@ -53,26 +53,26 @@ if x~=583 or y~=110 then return false end
     return true
 end
 ----------------------
-function 调整解体为按new排序()
+local function 调整解体为按new排序()
 while 检查解体是否按new排序() == false do
 	Base.ClickRect(589,111)
 	Base.Sleep(400)
 end
 end
-function 调整解体为按破损排序()
+local function 调整解体为按破损排序()
 while 检查解体是否按破损排序() == false do
 	Base.ClickRect(589,111)
 	Base.Sleep(400)
 end
 end
 ----------------------
-function 解体有锁(p)
+local function 解体有锁(p)
 	local dy = (p-1)*31
 	if p>1 then dy=dy+1 end
 	return Base.IsColor(581,133+dy,8119033)
 end
 ----------------------
-function 解体完成()
+local function 解体完成()
 
 	array = {}
 	count = {}
@@ -86,7 +86,7 @@ count[1] = array
 
 end
 ----------------------
-function 等待解体完成()
+local function 等待解体完成()
 Base.Sleep(1000)
 while 解体完成()==false do
 	Base.Sleep(1000)

@@ -3,7 +3,7 @@ require("\\Lua\\Battle")
 require("\\Lua\\changebynew")
 require("\\Lua\\尝试远征")       --尝试一次远征()
 local 捞铝=1             --选择是否捞铝，1是，0否
-local 休眠时间=0
+local 休眠时间=9
 local 运行次数=20
 --远征
 --[[
@@ -12,7 +12,7 @@ k3_conquest = C.防空射撃演習_ID6
 k4_conquest = C.海上護衛任務_ID5
 ]]
 --------下面的设置不用管
-changekan4_3=true
+changekan4_3=false
 men = 0 ------开启调度
 number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID
@@ -158,7 +158,7 @@ Win.Pop('脚本执行完毕！')
 end
 
 function 肝船4_3T()
-if n > 运行次数 or os.time()<cj_last_time+休眠时间 then return end
+if n > 运行次数 or os.time()<cj_last_time+休眠时间*60 then return end
 	Win.Print(( "开始第:%d次"):format(n))
 	ret = 补给.执行(true) --只补给舰队1
 

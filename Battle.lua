@@ -1,14 +1,16 @@
 require("\\Lua\\BaseFunc")
 --  require("\\Lua\\Battle")
 -- 全局变量 有掉落 存在则为 1
-function 可以出击()
+-- EXPORT 罗盘()  罗盘处理() D战斗_强行进击(Formation,Night) 
+--D战斗(Formation,Night,GoNextBattle)
+local function 可以出击()
 local count = {}
 waitsta(529,421,0)
 table.insert(count,0,{[0]=624,445,6140642}) 
 return IsColorAll(count)
 end
 
-function 进入战斗()
+local function 进入战斗()
     array = {};
 	count = {};
 	
@@ -27,7 +29,7 @@ function 罗盘()
 	return false
 end
 
-function 阵型()
+local function 阵型()
 	---426,185
 	x,y=Base.CallFunc("Base.FindColor","[7236872,15922943,13948882,11777438,11777438]")
 	_,_,x,y=string.find(x, "^(-?%d+),(-?%d+)$")
@@ -37,7 +39,7 @@ function 阵型()
     return true
 end
 
-function 存在大破()
+local function 存在大破()
 	--323,254
 	x,y=Base.CallFunc("Base.FindColor","[4408390,2829870,1053201,1316908,1712203]")
 	_,_,x,y=string.find(x, "^(-?%d+),(-?%d+)$")
@@ -47,7 +49,7 @@ function 存在大破()
     return false
 end
 
-function 胜利失败()
+local function 胜利失败()
 
 	array = {}
 	count = {}
@@ -69,7 +71,7 @@ function 胜利失败()
 
 end
 
-function 旗舰大破()
+local function 旗舰大破()
 	--669,118
 	x,y=Base.CallFunc("Base.FindColor","[1162,263571,459413,264063,262283]")
 	_,_,x,y=string.find(x, "^(-?%d+),(-?%d+)$")
@@ -79,7 +81,7 @@ function 旗舰大破()
     return false
 end
 
-function 在夜战离脱判定()
+local function 在夜战离脱判定()
 
 	array = {}
 	count = {}
@@ -107,7 +109,7 @@ function 在夜战离脱判定()
 
 end
 
-function 战果报告()
+local function 战果报告()
 
     array = {};
 	count = {};
@@ -124,7 +126,7 @@ function 战果报告()
     return IsColorAll(count)
 end
 
-function 在进击撤退判定()
+local function 在进击撤退判定()
     array = {};
 	count = {};
 	array = {[0]=402,57,2694926}; count[0] = array;
@@ -139,7 +141,7 @@ function 在进击撤退判定()
     return IsColorAll(count)
 end
 
-function 掉落()
+local function 掉落()
 	--352,450
 	x,y=Base.CallFunc("Base.FindColor","[1577991,1906956,2499093,3288609,3814953,3880746,3551781,3222816,2762773,3025945,3420703,3683875,3683875,3420703,3025945]")
 	
@@ -150,7 +152,7 @@ function 掉落()
     return true
 end
 
-function 资源点结束()
+local function 资源点结束()
 	--273,110
 	x,y=Base.CallFunc("Base.FindColor","[3617831,8025889,12631325,12631325,6972962,5262628,10263070,12631325,5854500,3617831]")
 
@@ -169,7 +171,7 @@ function 资源点结束()
 end
 
 --++++++++++++++++
-function 选择阵型(fm)
+local function 选择阵型(fm)
 Base.Sleep(2000)
 if fm==1 then
 	tc(448,187)
@@ -185,7 +187,7 @@ end
 
 end
 
-function 夜战离脱判定(nt)         --nt==true 追击
+local function 夜战离脱判定(nt)         --nt==true 追击
 Base.Sleep(1000)
 if nt==true then
 tc(513,243)
@@ -196,7 +198,7 @@ Win.Print("脱离")
 end
 
 end
-function 进击撤退判定(gn)           --gn==true 进击
+local function 进击撤退判定(gn)           --gn==true 进击
 Base.Sleep(1000)
 if gn==true then
 tc(290,241)                -- 进击
