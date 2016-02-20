@@ -386,7 +386,7 @@ GoMod()
 -- TODO
 end
 
-function 换上回避锅(i)  --尽可能换上桶，已有装备不会被换下
+function 换上回避锅(i)  --尽可能换上锅，已有装备不会被换下
 GoMod()
 tc (199,169+(i-1)*55) Base.Sleep(300)
 while 选择一个空的slot() do
@@ -400,4 +400,27 @@ function 换下回避锅()
 GoMod()
 解除所有装备()
 backhome()
+end
+function 某位可换(pos)
+waitsta(357,471,7640484)
+local cx=150
+local cy=186+(pos-1)*55
+local c=1926911
+tc(199,169+(pos-1)*55)
+return Base.IsColor(cx,cy,c) and Base.IsColor(581,448,6908196)
+end
+function 改修选择舰队(kantaiNum)
+tc(147+(kantaiNum-1)*30,112)
+end
+
+function 全上桶(kantaiNum) --为某舰队尽可能换上桶
+GoMod()
+改修选择舰队(kantaiNum)
+for pos=1,6 do
+	if 某位可换(pos) then --这个函数已经选择船
+		while 选择一个空的slot() do
+			快速选择装备(寻找装备信息("桶"))
+		end
+	end
+end
 end
