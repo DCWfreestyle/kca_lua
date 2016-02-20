@@ -1,8 +1,8 @@
 require("\\Lua\\BaseFunc")
 local pagenp={[0]=497,527,559,589,621,651}  --当前页（位置）检查
-local pagey=446                     --点击Y
-local pagexs={516,548,578,608,640}  --点击X
-local FExs={432,466,676,714}  --四个箭头
+ pagey=446                     --点击Y
+ pagexs={516,548,578,608,640}  --点击X
+ FExs={432,466,676,714}  --四个箭头
 local chbut={{408,212}}
 inied=false
 local dcgloop=false
@@ -210,7 +210,7 @@ waitsta(418,447,10592291)
 return true
 end
 
-local function 进入编成()
+function 进入编成()
 GoOrganize()
 return true
 end

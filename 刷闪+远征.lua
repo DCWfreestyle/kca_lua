@@ -25,9 +25,9 @@ DD:
 	54浜风  71朝潮 114朝霜 61舞风 80谷风 88霞 100满潮
 	107清霜 108山云  111初春 112初雪 126秋云 115江风 109z1
 ]]--
---刷闪设置
+--刷闪设置 
 kanlist = {
-	86,88,112
+	72,73
 	}
 tlist =   {1}
 mg=3           	-- 每把执行次数
@@ -111,7 +111,7 @@ if ended then return end --结束后不再运行
 local k,v = kanlist_iter()
 if v == nil then   --结束后的处理
 	ended = true  --结束信号
-	if 完成之后解体 then 破损解体(dropkan) end
+	if 完成之后解体 then 破损解体(dropkan-1) end
 	backhome()
 	if 刷闪修理==true then
 	Kan.Repair(4)
@@ -121,7 +121,7 @@ if v == nil then   --结束后的处理
 end
 --进行刷闪
     p("刷闪：KanNum:",v)
-	进入编成()
+	GoOrganize()
 	Dcg(1,v) 
 	换下僚舰()
 	换上僚舰()

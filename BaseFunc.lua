@@ -101,7 +101,7 @@ local function 母港2()
 	
 end
 
-local function 检查是否在母港()
+function 检查是否在母港()
 
 	array = {}
 	counts = {}

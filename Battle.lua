@@ -3,7 +3,7 @@ require("\\Lua\\BaseFunc")
 -- 全局变量 有掉落 存在则为 1
 -- EXPORT 罗盘()  罗盘处理() D战斗_强行进击(Formation,Night) 
 --D战斗(Formation,Night,GoNextBattle)
-local function 可以出击()
+function 可以出击()
 local count = {}
 waitsta(529,421,0)
 table.insert(count,0,{[0]=624,445,6140642}) 
