@@ -482,3 +482,19 @@ backhome()
 Win.Print("cgallbutflag:批量换船完成!")
 return true
 end
+
+
+function 编成展开(kn)   --kn是记录编号，1,2,3,4
+if not (kn>=1 and kn<=4) then p("编成展开:错误！") return false end
+进入编成()
+tc(63,385)
+while not Base.IsColor(142,147,15252333) do
+Base.Sleep(100)
+tc(63,385)
+end
+Base.Sleep(500)
+tc(297,198+(kn-1)*52)
+waitsta(384,218,8974250)
+backhome()
+return true
+end

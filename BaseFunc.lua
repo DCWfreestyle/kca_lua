@@ -236,3 +236,16 @@ function iterator(t) --返回 key,value
         return k,t[k];
     end
 end
+function SupplyAllStringMatch(_str)
+    local t2 = { string.match(_str , "^(-?%d+),(-?%d+),(-?%d+),(-?%d+)|(%d+),(%d+),(%d+),(%d+),(%d+),(%d+)") }
+    --将返回的数据匹配到表中
+    t = {}
+
+    for key, value in pairs(t2) do  
+        table.insert(t,tonumber(value))
+    end  --转为数值
+    Base.Print(string.format("舰队状态:%d %d %d %d",t[1],t[2],t[3],t[4]))
+    Base.Print(string.format("第一舰队单船状态:%d %d %d %d %d %d",t[5],t[6],t[7],t[8],t[9],t[10]))
+    
+    return t
+end
