@@ -1,7 +1,10 @@
 require("\\Lua\\changebynew")
 require("\\Lua\\工具")
 --   set include_modhelper=true
-local GROUPS = {{92,118,36,62,76},{51,85,68,50,45},{87,27,22,34,19}}
+local GROUPS = {
+		{143,89,63},
+		{138,136},
+		{128,137}}
 local function getfromtables(T)  --组成
     local ret={}
     for k,v in pairs(T) do

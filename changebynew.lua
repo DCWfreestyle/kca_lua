@@ -202,7 +202,7 @@ local dx=(cp+1)%2
 local dy,_=math.modf((cp-1)/2)
 waitsta(790,463,13292250)
 if not (Base.IsColor(410+dx*342,215+dy*113,13229005) or Base.IsColor(410+dx*342,215+dy*113,5870139)) then
-	Win.Print("该位置无效,失败")
+	Win.Print(("点击变更：该位置无效,失败:pos=%d"):format(cp))
 	return false
 end
 tc(408+dx*342,212+dy*113)
@@ -289,7 +289,7 @@ local ln2=n2
 
 -- pagedelaylv
 
-if not 点击变更(ln1) then Win.Print("换船：换船失败") return false end
+if not 点击变更(ln1) then Win.Print(("换船：换船失败:pos=%d,kannum=%d"):format(n1,n2)) return false end
 
 setLv(pagedelaylv)
 调整为new排序()
@@ -322,7 +322,7 @@ if not Base.IsColor(678,452,7171615) then
 	dcgloop=false
 	return false
 	else
-	Win.Print("换船：换船失败")
+	Win.Print(("换船：换船失败:pos=%d,kannum=%d"):format(n1,n2))
 	--backhome()
 	return false
 	end
@@ -379,48 +379,22 @@ Win.Print("cgall:批量换船完成!")
 return true
 end
 
-function cgInGroupsPreviousVersion()  --cgInGroups以前的版本
---[[
-使用changekan前设置
-kana={[0]=7,20,81,83,14,22,40,39,72,73,25,36} --更换
-cgp={[0]=2,3}
-ncg=#kana+1
-cgsta={[0]=0}
-]]
-if cgen~=1 then return false end
-if inied==false then
-	inied=true
-	for nt=1,#cgp do
-		local tp = cgsta[nt-1]
-		table.insert(cgsta,(tp+math.modf(ncg/(#cgp+1)))%ncg)
-	end
-	for _,i in pairs(cgsta) do
-		Win.Print(i)
-	end
+function cgInGroupsAhead()  --服务于cgInGroups() 使状态前进一步 (一步就相当于执行cgInGroups()一次)
+if inied~=true then ini() end
+for key =1,6 do
+    if cgstas[key] ~=nil then
+    local cgsta=cgstas[key]
+    cgsta[2]=(cgsta[2])%(#groups[cgsta[1]])+1
+    end
 end
-
-local pi
-local pn
-
-进入编成()
-for pi=0,#cgp do
-	for pn=1,ncg do
-	scg=Dcg(cgp[pi],kana[cgsta[pi]])
-	cgsta[pi]=(cgsta[pi]+1)%ncg
-	if scg==true then break end
-	end
-	if not scg then Win.Print("换船:失败") return false end
-end
-backhome()
-return true
 end
 
 function ini()
 if inied then return false end
 inied=true
---在changekan()使用前必须调用一次
+--在cgInGroups()使用前必须调用一次
 for keyg,group in pairs(groups) do  			--对每个组进行检查
-	theNumOfPostionsBelong2group=0
+	local theNumOfPostionsBelong2group=0
 	for keys,cgsta in pairs(cgstas) do		--先计算对于group有多少个位置在使用
 		if cgsta[1]==keyg then theNumOfPostionsBelong2group=theNumOfPostionsBelong2group+1 end
 	end
@@ -430,7 +404,7 @@ for keyg,group in pairs(groups) do  			--对每个组进行检查
 		if cgsta[1]==keyg and keys<firstpos then firstpos=keys order=cgsta[2] end
 	end
 	for keys,cgsta in pairs(cgstas) do		--更改序号
-		if cgsta[1]==keyg and keys~=firstpos then 
+		if cgsta[1]==keyg and keys~=firstpos then --第一个使用的不变
 			cgsta[2]=(order-1+math.modf((#groups[cgsta[1]])/theNumOfPostionsBelong2group))%(#groups[cgsta[1]])+1   --尽量地均匀划分
 			order = cgsta[2] --更新order用于下次计算
 		end
@@ -439,14 +413,16 @@ end
 end
 
 function cgInGroups()
-ini()
-if cgen~=1 then return false end
+if inied~=true then ini() end
+if cgen~=1 and cgen~=true then return false end
 
 local cgp       --位置
 local cgn		--编号
 local scg		--成功失败判定
 进入编成()
-for key,cgsta in pairs(cgstas) do
+for key =1,6 do
+    if cgstas[key] ~=nil then
+    local cgsta=cgstas[key]
 	cgp=key
 	for mtry=1,#groups[cgsta[1]] do
 		cgn=groups[cgsta[1]][cgsta[2]]
@@ -456,6 +432,7 @@ for key,cgsta in pairs(cgstas) do
 		tc(201,263) waitsta(713,449,8898001) tc(211,269) waitsta(795,458,14147559)
 	end
 	if not scg then Win.Print("cgInGroups:失败") return false end
+    end
 end
 backhome()
 Win.Print("cgInGroups:批量换船完成!")

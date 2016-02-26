@@ -223,6 +223,7 @@ end
 end
 
 function 刷新游戏()
+p("刷新游戏！")
 Base.ReLoad()
 while 启动画面()==false do Base.Sleep(500) end  --等待加载结束
 tc(655,400)

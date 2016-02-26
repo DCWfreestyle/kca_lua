@@ -1,7 +1,7 @@
 require("\\Lua\\changebynew")
 require("\\Lua\\ztaskVer2")
 require("\\Lua\\尝试远征")
-local ssta=1
+local ssta=0
 出击次数=20
 nss=3
 n=1
@@ -14,7 +14,7 @@ Kan.AddBattleInfo(4,1,true,false) --纵 M点群爹 夜战
 --2\3为夜战点，可考虑单横（5）来回避CI
 --每个点的战斗设置 如果要修改为别的活动图的时候需要改
 
-Kan.AddWay(359,122) 
+Kan.AddWay(359,122)
 --能动点 上路I点
 
 --kan_support_boss_id = 2

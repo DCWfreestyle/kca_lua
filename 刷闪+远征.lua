@@ -27,9 +27,9 @@ DD:
 ]]--
 --刷闪设置 
 kanlist = {
-	72,73
+	100,5
 	}
-tlist =   {1}
+tlist =   {2}
 mg=3           	-- 每把执行次数
 刷闪修理=true
 rl =1
@@ -41,7 +41,7 @@ number_of_tasks = 2 -------任务数量
 task_id = 1		------任务ID 0 , ... , number_of_tasks-1
 -----------
 dropkan = 1 --现有掉落数量
-droplimit = 9 --掉落上限
+droplimit = 9 --掉落上
 local n=1
 local kanlist_iter=iterator(kanlist)
 local ended=false --结束信号
@@ -130,8 +130,6 @@ end
 	mg=tlist[k] or 3 --设置出击次数，默认为3，可在tlist设置
 	刷闪一只船(mg)
 end
-
-
 
 while true do 
 	刷闪()

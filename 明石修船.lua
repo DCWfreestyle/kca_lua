@@ -1,5 +1,5 @@
 require("\\Lua\\changebynew")
-明石修理数量=3
+明石修理数量=5
 明石编号=99
 
 rl=1
