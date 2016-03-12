@@ -74,8 +74,8 @@ function td(n) --n-delaytime-akm
 end
 
 local function 启动画面()
-	array = {}
-	count = {}
+	local array = {}
+	local count = {}
 	
 array = {[0]=569,193,4770794}
 count[0] = array
@@ -104,7 +104,7 @@ end
 function 检查是否在母港()
 
 	array = {}
-	counts = {}
+	local counts = {}
 
 	array = {[0]=204,247,2137083};counts[0] = array
 	
@@ -123,7 +123,7 @@ end
 
 
 function InMod()
-    array = {};count = {};
+    array = {};local count = {};
     array = {[0]=28,279,2328528}; count[0] = array;
     array = {[0]=20,299,10530090}; count[1] = array;
     return IsColorAll(count)
@@ -136,7 +136,7 @@ return IsColorAll(count)
 end
 
 function InFactory()
-count = {}
+local count = {}
 table.insert(count,0,{[0]=24,358,2511273}) 
 return IsColorAll(count)
 end

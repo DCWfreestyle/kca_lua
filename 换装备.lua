@@ -403,8 +403,8 @@ backhome()
 end
 function Ä³Î»¿É»»(pos)
 waitsta(357,471,7640484)
-local cx=150
-local cy=186+(pos-1)*55
+local cx=131
+local cy=175+(pos-1)*55
 local c=1926911
 tc(199,169+(pos-1)*55)
 return Base.IsColor(cx,cy,c) and Base.IsColor(581,448,6908196)

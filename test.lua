@@ -15,21 +15,124 @@ local scancode=1258291200
 Base.SendMessage(256,37,scancode+3221225473)
 Base.SendMessage(257,37)
 end
-ret = Base.CallFunc("Base.FindColorExAll","[0,3355443,3355443,12896206,15922943,15922943,14738668,4539975,3355443,3355443,3355443]")
---会返回所有符合位置的坐标
---第一个参数是误差值0-255 建议在<10
 
-if ret ~= nil then --没有找到的话 返回值为nil 需要判断 否则出错
-        --下面我们处理一下返回的字符串 将他们放到table中
-        t = {}
-        for k, v in string.gmatch(ret, "(%d+),(%d+)") do    
-                table.insert(t,{x=k,y=v}) 
-                --在表中插入一个坐标 当然也可以在这里直接使用
-        end 
- 
-        Base.Print("-----")
-        --输出坐标
-        for key, value in pairs(t) do  
-                Base.Print(string.format("%d,%d",value["x"],value["y"]))
-        end  
+
+local function CheckClickCount(_count)
+	a = (_count - _count % 100) / 100
+	b = ((_count % 100) - (_count % 100) % 10) / 10 - 1
+	c = _count - a*100 - b*10 - 10
+	return a,b,c
 end
+
+function setResource(燃料,弹药,钢材,铝材)
+
+	a,b,c = CheckClickCount(燃料)
+	if a ~= 0 or  b ~= 0 or c ~= 0 then
+		for n=1,a do
+			Base.Click(490,163) --a
+			Base.Sleep(100,true)
+		end
+		Base.Sleep(300,true)
+		
+		if b < 0 then 
+			for n=1,math.abs (b) do
+				Base.Click(437,136) --b
+				Base.Sleep(100,true)
+			end
+		else
+			for n=1,b do
+				Base.Click(489,136) --b
+				Base.Sleep(100,true)
+			end
+		end
+		
+		Base.Sleep(300,true)
+		for n=1,c do
+			Base.Click(361,156) --c
+			Base.Sleep(100,true)
+		end
+	
+	end
+	
+	a,b,c = CheckClickCount(弹药)
+	
+	if a ~= 0 or  b ~= 0 or c ~= 0 then
+		for n=1,a do
+			Base.Click(489,293) --a
+			Base.Sleep(100,true)
+		end
+		Base.Sleep(300,true)
+		if b < 0 then 
+			for n=1,math.abs (b) do
+				Base.Click(437,267) --b
+				Base.Sleep(100,true)
+			end
+		else
+			for n=1,b do
+				Base.Click(490,267) --b
+				Base.Sleep(100,true)
+			end
+		end
+		Base.Sleep(300,true)
+		for n=1,c do
+			Base.Click(361,285) --c
+			Base.Sleep(100,true)
+		end
+	end
+	
+	a,b,c = CheckClickCount(钢材)
+	
+	if a ~= 0 or  b ~= 0 or c ~= 0 then
+		for n=1,a do
+			Base.Click(718,163) --a
+			Base.Sleep(100,true)
+		end
+		Base.Sleep(300,true)
+		
+		if b < 0 then 
+			for n=1,math.abs (b) do
+				Base.Click(665,136) --b
+				Base.Sleep(100,true)
+			end
+		else
+			for n=1,b do
+				Base.Click(718,136) --b
+				Base.Sleep(100,true)
+			end
+		end
+		
+		Base.Sleep(300,true)
+		for n=1,c do
+			Base.Click(589,155) --c
+			Base.Sleep(100,true)
+		end
+	end
+	
+	a,b,c = CheckClickCount(铝材)
+	
+	if a ~= 0 or  b ~= 0 or c ~= 0 then
+		for n=1,a do
+		Base.Click(717,294) --a
+			Base.Sleep(100,true)
+		end
+		Base.Sleep(300,true)
+		if b < 0 then 
+			for n=1,math.abs (b) do
+				Base.Click(665,266) --b
+				Base.Sleep(100,true)
+			end
+		else
+			for n=1,b do
+				Base.Click(718,266) --b
+				Base.Sleep(100,true)
+			end
+		end
+		Base.Sleep(300,true)
+		for n=1,c do
+			Base.Click(589,285) --c
+			Base.Sleep(100,true)
+		end
+	end
+	Base.Sleep(500,true)
+end
+p(Base.GetColor(324,129,1607462))

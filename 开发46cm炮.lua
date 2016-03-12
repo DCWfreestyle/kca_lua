@@ -31,7 +31,7 @@ function IsColorAll(array) --请保持这个函数不要修改
 end
 
 function IsFactory() --由工具KanAuto专用取色工具生成，请到论坛下载
-    array = {};count = {};
+    local array = {};local count = {};
     array = {[0]=291,246,3492493}; count[0] = array;
     array = {[0]=200,265,3029879}; count[1] = array;
     array = {[0]=202,238,3363487}; count[2] = array;
