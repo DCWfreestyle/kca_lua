@@ -58,6 +58,9 @@ for i=1,maxfactory do
 	if 建造完成(i) then
 		p("GET",i)
 		Base.Click(617,257+((i-2)*78) )
+		while 建造完成(i) do
+			Base.Sleep(500)
+		end
 		完成处理()
 		return i
 	end
@@ -257,7 +260,8 @@ function CheckMyMission(name)
 		if #t > 0 then
 			Base.Print("点击")
 			Base.Click(t[1].x,t[1].y)
-			waitsta(92,463,7171374)
+			waitstaR(149,474,13822963)
+			waitsta(149,474,13822963)
 			return true;
 		end
 	end
@@ -368,7 +372,8 @@ function 接任务b(names)   --传入任务名或任务名list
 
 end
 --CheckMyMission(开发1)
---[[接任务b(开发1)
+--[[ 
+接任务b(开发1)
 开发(1)
 收任务(开发1)
 接任务b(建造1)
@@ -378,8 +383,12 @@ end
 开发(3)
 收任务(开发3)
 接任务b(建造3)
-]]
-建造(2)
+
+建造(3)
 收任务(建造3)
 接任务b({改修,拆船})
+
+接任务b(拆船)
 new解体(2)
+]]
+--空西

@@ -135,4 +135,7 @@ function setResource(È¼ÁÏ,µ¯Ò©,¸Ö²Ä,ÂÁ²Ä)
 	end
 	Base.Sleep(500,true)
 end
-p(Base.GetColor(324,129,1607462))
+while true do
+p(Base.GetColor(149,474))
+Base.Sleep(500)
+end

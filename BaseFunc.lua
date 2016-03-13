@@ -222,6 +222,11 @@ while not Base.IsColor(px,py,pc) do
 end
 end
 
+function waitstaR(px,py,pc) --reverse
+while Base.IsColor(px,py,pc) do
+	Base.Sleep(10)
+end
+end
 function 刷新游戏()
 p("刷新游戏！")
 Base.ReLoad()
