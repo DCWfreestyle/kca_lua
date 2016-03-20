@@ -1,10 +1,7 @@
 require("\\Lua\\changebynew")
 require("\\Lua\\工具")
 --   set include_modhelper=true
-local GROUPS = {
-		{143,89,63},
-		{138,136},
-		{128,137}}
+local GROUPS = {118,37,23,27}
 local function getfromtables(T)  --组成
     local ret={}
     for k,v in pairs(T) do
@@ -45,7 +42,9 @@ function 配装助手(T)
     for k,v in pairs(B) do
         cgall(v)
         GoMod()
-        通用.等待母港(2000)
+        while not 检查是否在母港() do
+	 		Base.Sleep(1000)
+		end
     end
 end
 

@@ -6,8 +6,8 @@ require("\\Lua\\南西日常")
 include_修船=true
 require("\\Lua\\明石修船")
 require("\\Lua\\尝试远征")
-local ssta=0
-出击次数=6
+local ssta=1
+出击次数=10
 出击模式= 2       --1偷油 2任务   3南西
 local rep=1              --修船
    --远征

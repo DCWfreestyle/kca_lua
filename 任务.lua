@@ -65,7 +65,14 @@ for i=1,maxfactory do
 		return i
 	end
 end
-return false
+
+tc(740,184)
+waitsta(480,382,10460707)  --喷火需要
+Base.Sleep(1000)
+Base.Click(480,382)
+waitsta(447,144,11974258)
+Base.Sleep(1000)
+return 清理出一个建造栏()
 end
 function 建造(n) --30 30
 n=n or 1
@@ -372,7 +379,7 @@ function 接任务b(names)   --传入任务名或任务名list
 
 end
 --CheckMyMission(开发1)
---[[ 
+--[[ ]
 接任务b(开发1)
 开发(1)
 收任务(开发1)
@@ -380,10 +387,11 @@ end
 建造(1)
 收任务(建造1)
 接任务b(开发3)
-开发(3)
+开发(3)]]
 收任务(开发3)
-接任务b(建造3)
 
+
+--[[ 
 建造(3)
 收任务(建造3)
 接任务b({改修,拆船})

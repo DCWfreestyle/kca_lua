@@ -326,8 +326,10 @@ if not Base.IsColor(678,452,7171615) then
 	--backhome()
 	return false
 	end
-end
-Base.ClickRect(686,446)
+
+else 
+	Base.ClickRect(686,446)
+	end
 waitsta(782,112,7105552)
 Win.Print("换船:完成一次")
 return true
