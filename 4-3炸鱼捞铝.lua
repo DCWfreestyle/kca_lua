@@ -158,7 +158,7 @@ Win.Pop('脚本执行完毕！')
 end
 
 function 肝船4_3T()
-if n > 运行次数 or os.time()<cj_last_time+休眠时间*60 then return end
+    if n > 运行次数 or os.time()<cj_last_time+休眠时间*60 then return end
 	Win.Print(( "开始第:%d次"):format(n))
 	ret = 补给.执行(true) --只补给舰队1
 

@@ -51,7 +51,7 @@ while not Base.IsColor(587,189,4540233) do
 	Base.Sleep(1000)
 end
 Dcg(1,明石编号)
-while reppos<(明石修理数量+2) and reppos<6 do
+while reppos<(明石修理数量+2) and reppos<=6 do
 添加修理船()
 end
 backhome()

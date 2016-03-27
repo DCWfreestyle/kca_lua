@@ -26,4 +26,4 @@ end
 
 
 Kan.AddKanChangeName("Ç±Ë®½¢ÂíÂ·ÓÍ", 1, 30,  true, 0, 4);
-Kan.ChangeDIY(2,1,0,3,false)
+tl(1,23)

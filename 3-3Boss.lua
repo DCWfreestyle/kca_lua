@@ -1,4 +1,5 @@
 require("\\Lua\\Battle")
+require("\\Lua\\尝试远征")
 --i added this 
 include_formedcag=true
 require("\\Lua\\formedcga")
@@ -59,13 +60,12 @@ if hc==1 then hcg[2]() end
 通用.等待母港(500)
 补给.执行() 
 
-if rl==1 then
-通用.等待母港(500)
-Base.ClickRectEx(399,460,10,5) --释放
-end
-
 if iss then
 p("BOSS wo uchi to tta ri")
 else
 p("Failed")
+end
+while true do
+	尝试一次远征()
+	Base.Sleep(1000*2)
 end
