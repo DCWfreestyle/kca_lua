@@ -1,7 +1,7 @@
 
 --Default
 if k2_conquest==nil and k3_conquest==nil and k4_conquest==nil then
-k2_conquest = C.防空射撃演習_ID6
+k2_conquest = C.長距離練習航海_ID2
 k3_conquest = C.東京急行弐_ID38
 k4_conquest = C.海上護衛任務_ID5
 end
