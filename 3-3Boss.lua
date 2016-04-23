@@ -63,16 +63,10 @@ return true
 
 end
 
-while true do
 
-
-	尝试一次远征()
-	Base.Sleep(1000*2)
-end
-
-function 出击(出击策略 ) --table 换船f ,出击战斗f,修理f,等待时间,出击次数,结束f
+function D出击(出击策略 ) --table 换船f ,出击战斗f,修理f,等待时间,出击次数,结束f
 --TODO:入参检验..
-    if cjn=nil then --initial
+    if cjn==nil then --initial
         cjn = 1 --globa
         ended=false
         local ret=0
@@ -126,11 +120,12 @@ end
 
 function 出击and远征(出击策略)
     while true do 
-        出击(出击策略)
+        D出击(出击策略)
         尝试一次远征()
-        Base.Sleep(1000*2)
+        Base.Sleep(1000*5)
+		p("rest:",rest)
     end
 end
 
 if hc==1 then hcg[2]() end
-出击and远征({换船f=nil ,出击战斗f=战斗33,修理f=nil,等待时间=6,出击次数=nil,结束f=function() return rest==0 end })
+出击and远征({换船f=nil ,出击战斗f=function() 出击.执行(3, 3) return 战斗33() end,修理f=0,等待时间=6,出击次数=0,结束f=function() return rest==0 end })

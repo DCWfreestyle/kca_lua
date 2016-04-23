@@ -26,4 +26,8 @@ end
 
 
 Kan.AddKanChangeName("Ç±Ë®½¢ÂíÂ·ÓÍ", 1, 30,  true, 0, 4);
-tl(1,23)
+function rr(s)
+s()
+
+
+end
