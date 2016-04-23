@@ -79,13 +79,13 @@ ss2={ -- 2SS≈‰÷√
 
 [0]=function() return cgall({67,96}) end, 
 function() return cgall({70,103}) end, 
-function() return cgall({93,58}) end, 
+function() return cgall({93,84}) end, 
 function() return cgall({67,46}) end, 
 function() return cgall({70,103}) end, 
 function() return cgall({93,70}) end, 
 function() return cgall({67,93}) end,
 function() return cgall({93,67}) end,
-function() return cgall({70,84}) end,
+function() return cgall({70,58}) end,
 }
 
 function ‘∂’˜()

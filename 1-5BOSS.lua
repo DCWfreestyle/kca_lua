@@ -11,3 +11,8 @@ if rl==1 then
 通用.等待母港(2000)
 Base.ClickRectEx(399,460,10,5) --释放
 end
+require("\\Lua\\尝试远征")
+while true do
+	尝试一次远征()
+	Base.Sleep(1000*2)
+end

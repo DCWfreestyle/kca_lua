@@ -1,5 +1,7 @@
 require("\\Lua\\Battle")
 require("\\Lua\\³¢ÊÔÔ¶Õ÷")
+include_ĞŞ´¬=true
+require("\\Lua\\Ã÷Ê¯ĞŞ´¬")
 --i added this 
 include_formedcag=true
 require("\\Lua\\formedcga")
@@ -66,6 +68,8 @@ else
 p("Failed")
 end
 while true do
+
+
 	³¢ÊÔÒ»´ÎÔ¶Õ÷()
 	Base.Sleep(1000*2)
 end

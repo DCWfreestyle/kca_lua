@@ -88,6 +88,22 @@ end
 backhome()
 end
 
+function 清空建造栏() --30 30
+local n=maxfactory
+GoFactory()
+for i=1,maxfactory do
+	if 建造完成(i) then
+		p("GET",i)
+		Base.Click(617,257+((i-2)*78) )
+		while 建造完成(i) do
+			Base.Sleep(500)
+		end
+		完成处理()
+	end
+end
+backhome()
+end
+
 local function CheckClickCount(_count)
 	a = (_count - _count % 100) / 100
 	b = ((_count % 100) - (_count % 100) % 10) / 10 - 1
@@ -379,7 +395,8 @@ function 接任务b(names)   --传入任务名或任务名list
 
 end
 --CheckMyMission(开发1)
---[[ ]
+清空建造栏()
+--[[ ]]
 接任务b(开发1)
 开发(1)
 收任务(开发1)
@@ -387,10 +404,10 @@ end
 建造(1)
 收任务(建造1)
 接任务b(开发3)
-开发(3)]]
+开发(3)
 收任务(开发3)
 
-
+--清空建造栏()
 --[[ 
 建造(3)
 收任务(建造3)
