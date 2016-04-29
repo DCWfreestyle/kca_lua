@@ -1,3 +1,11 @@
+require("\\Lua\\Battle")
+require("\\Lua\\尝试远征")
+include_修船=true
+require("\\Lua\\明石修船")
+--i added this 
+include_formedcag=true
+require("\\Lua\\formedcga")
+
 Kan.Sally(3,5)
 Kan.DelBattleInfo()
 Kan.AddBattleInfo(1,1,false,false)
@@ -7,5 +15,7 @@ Kan.BattleEx(1,3,99,99,flase)
 
 补给.执行() 
 
-通用.等待母港(2000)
-Base.ClickRectEx(399,460,10,5) --释放
+
+
+LastBattleCount = Base.GetValue("LastBattleCount")
+p(LastBattleCount)
