@@ -9,7 +9,7 @@ rl=0
 hc=0
 
 local iss=false
-local rest=5
+local rest=2
 function 线路判断(lastp)
 	while true do
 		if  lastp==1 then return 2 end
@@ -123,7 +123,7 @@ function 出击and远征(出击策略)
         D出击(出击策略)
         尝试一次远征()
         Base.Sleep(1000*5)
-		p("rest:",rest)
+		if os.time()%60<10 then  p("rest:",rest)end
     end
 end
 

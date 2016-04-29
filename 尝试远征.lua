@@ -6,7 +6,7 @@ k3_conquest = C.ñ|æ©º±––èr_ID38
 k4_conquest = C.æØÇ‰»ŒÑ’_ID3
 end
 --
-local check_time = {3,5}
+local check_time = {3,10}
 local yz_last_time = os.time()
 local run_count = 0
 local yz_delay_time=0

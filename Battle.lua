@@ -306,7 +306,7 @@ while true do
 	if 检查是否在母港() then
 		通用.等待母港(1000)
 		Win.Print("D战斗:结束，回到母港")
-		return 1
+		return 0
 	end
 	Base.Sleep(100)
 end
@@ -401,7 +401,7 @@ while true do
 	if 检查是否在母港() then
 		通用.等待母港(1000)
 		Win.Print("D战斗:结束，回到母港")
-		return 1
+		return 0
 	end
 	Base.Sleep(100)
 end
