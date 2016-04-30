@@ -1,7 +1,7 @@
 
 
 require("\\Lua\\AdvancedBattle")
-local rest = 5
+local rest = 1
 
 map_battle_count45=4
 
@@ -19,7 +19,7 @@ Kan.AddWay(477,213)
 Kan.BattleEx(1,4,99,99,true)
 
 LastBattleCount = Base.GetValue("LastBattleCount") 
-if tonumber(LastBattleCount) < map_battle_count45 then
+if tonumber(LastBattleCount) == map_battle_count45 then
 	rest=rest-1
 end
 

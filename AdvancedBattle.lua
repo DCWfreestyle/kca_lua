@@ -5,6 +5,17 @@ require("\\Lua\\明石修船")
 include_formedcag=true
 require("\\Lua\\formedcga")
 
+--require("\\Lua\\AdvancedBattle")
+
+function default修理f(ret)
+    while ret~=0 do --default
+        Win.Pop('大破或中破！',true)
+        Kan.RepairEx(1,12,12)
+        ret = 补给.执行(true)
+    end
+	return 0
+end
+
 
 function D出击(出击策略 ) --table 换船f ,出击战斗f,修理f,等待时间,出击次数,结束f,等待打印f
 
@@ -12,20 +23,22 @@ function D出击(出击策略 ) --table 换船f ,出击战斗f,修理f,等待时间,出击次数,结束f
     if cjn==nil then --initial
         --入参检验..
         if 出击策略.等待时间==nil then 出击策略.等待时间=0 end
-        if 出击策略.出击次数==nil then 出击策略.出击次数="inf" end --infinite
+        if 出击策略.出击次数==nil then 出击策略.出击次数=0 end --infinite
         if type(出击策略.结束f)~="function" then 出击策略.结束f=0 end
         if type(出击策略.换船f)~="function" then 出击策略.换船f=0 end
         if type(出击策略.等待打印f)~="function" then 出击策略.等待打印f=0 end
-        if type(出击策略.换船f)~="function" then 
+        if type(出击策略.出击战斗f)~="function" then 
             ended=true
             return
         end
-        if type(出击策略.修理f)~="function" then 出击策略.修理f=0 end
+        if type(出击策略.修理f)~="function" then 
+		    出击策略.修理f = default修理f
+		end
         cjn = 1 --globa
         ended=false
         local ret=0
     end
-    if (出击策略.出击次数>=1 and cjn>出击策略.出击次数) or ( 出击策略.结束f ~=0 and 出击策略.结束f()) then 
+    if (出击策略.出击次数~=0 and cjn>出击策略.出击次数) or ( 出击策略.结束f ~=0 and 出击策略.结束f()) then 
         --结束判断以及结束后处理
         ended=true
         if rep==1 then
@@ -44,15 +57,7 @@ function D出击(出击策略 ) --table 换船f ,出击战斗f,修理f,等待时间,出击次数,结束f
     Win.Print(("第:%d次"):format(cjn))
     ret = 补给.执行(true)
     if ret~=0 then
-        if type(出击策略.修理f)=="function" then
-            出击策略.修理f(ret)
-        else 
-            while ret~=0 do --default
-                Win.Pop('大破或中破！',true)
-                Kan.RepairEx(1,12,12)
-                ret = 补给.执行(true)
-            end
-        end
+		ret =  出击策略.修理f(ret)
     end
     if type(出击策略.换船f)=="function" then
         出击策略.换船f() --TODO
